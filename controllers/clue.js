@@ -1,5 +1,6 @@
 const Clue = require('./../models/clue.js');
 const ClueLog = require('./../models/log.js');
+const User = require('./../models/user.js');
 
 const { formatTime } = require('./../utils/date.js');
 
@@ -48,6 +49,13 @@ const userController = {
       const id = req.params.id;
       const clues = await Clue.select({ id })
       const logs = await ClueLog.select({ clue_id : id})
+      const users = await User.select({ role: 2 })
+      res.locals.users = users.map(data => {
+        return {
+          id: data.id,
+          name: data.name
+        }
+      });
       res.locals.clue = clues[0]
       res.locals.clue.created_time_display = formatTime(res.locals.clue.created_time);
       res.locals.logs = logs.map((data)=>{
@@ -64,6 +72,7 @@ const userController = {
     let status = req.body.status;
     let remark = req.body.remark;
     let id = req.params.id;
+    let user_id = req.body.user_id;
     
     if(!status || !remark){
       res.json({ code: 0, message: '缺少必要参数' });
@@ -72,7 +81,7 @@ const userController = {
 
     try{
       const clue = await Clue.update( id ,{ 
-        status, remark
+        status, remark, user_id
       });
       res.json({ 
         code: 200, 

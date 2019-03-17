@@ -33,6 +33,17 @@
       </div>
     </div>
     <div class="form-item">
+      <span class="form-text">当前分配销售：</span>
+      <div class="form-item">
+        <select id="clueUserId" class="form-input">
+          <option value="0">请选择分配销售</option>
+          {% for val in users  %}
+          <option value="{{val.id}}" {% if clue.user_id == val.id %} selected {% endif %}>{{val.name}}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <div class="form-item">
       <p class="form-text">备注：</p>
       <textarea id="clueRemark" class="form-textarea" placeholder="备注信息">{{clue.remark}}</textarea>
     </div>
@@ -53,7 +64,6 @@
           <p class="log-content">当前没有记录</p>
         </li>
       {% endfor %}
-
     </ul>
     <div class="form-section">
       <div class="form-item">

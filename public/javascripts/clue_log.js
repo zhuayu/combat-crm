@@ -10,15 +10,16 @@ const PAGE = {
     let id = $('#clueId').val();
     let status = $('#clueStatus').val();
     let remark = $('#clueRemark').val();
+    let user_id = $('#clueUserId').val();
     status = Number(status)
-    if(!id  || !status || !remark){
+    if(!id  || !status || !remark || !user_id){
       alert('请输入必要参数');
       return
     }
 
     $.ajax({
         url: '/api/clue/' + id,
-        data: { remark, status },
+        data: { remark, status, user_id },
         type: 'PUT',
         beforeSend: function() {
           $("#clueSubmit").attr("disabled",true);
