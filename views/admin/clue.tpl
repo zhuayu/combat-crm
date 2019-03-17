@@ -12,34 +12,18 @@
       <th>跟踪销售</th>
       <th>状态</th>
       <th>操作</th>
-    </trs>
-    <tr>
-      <td>周杰伦</td>
-      <td>13511111111</td>
-      <td>baidu_search</td>
-      <td>2019-4-1</td>
-      <td>陈奕迅</td>
-      <td>意向强烈</td>
-      <td><a href="/admin/clue/1">跟踪</a></td>
     </tr>
+    {% for val in clues  %}
     <tr>
-      <td>李易峰</td>
-      <td>13522222222</td>
-      <td>baidu_search</td>
-      <td>2019-4-1</td>
-      <td>陈奕迅</td>
-      <td>意向强烈</td>
-      <td><a href="/admin/clue/1">跟踪</a></td>
+      <td>{{ val.name }}</td>
+      <td>{{ val.phone }}</td>
+      <td>{{ val.utm }}</td>
+      <td>{{ val.created_time_display }}</td>
+      <td>{{ val.user_id }}</td>
+      <td>{{ val.status }}</td>
+      <td><a href="/admin/clue/{{val.id}}">跟踪</a></td>
     </tr>
-    <tr>
-      <td>陈奕迅</td>
-      <td>13533333333</td>
-      <td>baidu_search</td>
-      <td>2019-4-1</td>
-      <td>陈奕迅</td>
-      <td>意向强烈</td>
-      <td><a href="/admin/clue/1">跟踪</a></td>
-    </tr>
+    {% endfor %}
   </table>
 </div>
 {% endblock %}

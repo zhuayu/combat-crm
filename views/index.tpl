@@ -11,14 +11,20 @@
   <div class="form-section">
     <div class="form-title">留下电话，我们会马上联系你，为你预约优惠名额</div>
     <div class="form-item">
-      <input type="text" class="form-input" placeholder="你的姓名"/>
+      <input id="userName" type="text" class="form-input" placeholder="你的姓名"/>
     </div>
     <div class="form-item">
-      <input type="text" class="form-input" placeholder="你的电话"/>
+      <input id="userPhone" type="text" class="form-input" placeholder="你的电话"/>
     </div>
     <div class="form-item">
-      <button class="form-button">马上抢占名额</button>
+      <button id="userSubmit" class="form-button">马上抢占名额</button>
     </div>
   </div>
 </div>
+{% endblock %}
+
+
+{% block js %}
+<script src="/javascripts/jquery-3.3.1.min.js"></script>
+<script src="/javascripts/index.js"></script>
 {% endblock %}
