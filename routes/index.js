@@ -12,9 +12,9 @@ router.get('/', function(req, res, next) {
 
 router.get('/admin/login', authController.renderLogin);
 
-router.get('/admin/user', authMiddleware.mustLogin, userController.show);
-router.get('/admin/user/create', authMiddleware.mustLogin, userController.renderUserCreate);
-router.get('/admin/user/:id/edit', authMiddleware.mustLogin, userController.edit);
+router.get('/admin/user', authMiddleware.mustLogin, authMiddleware.mustRoot, userController.show);
+router.get('/admin/user/create', authMiddleware.mustLogin, authMiddleware.mustRoot, userController.renderUserCreate);
+router.get('/admin/user/:id/edit', authMiddleware.mustLogin, authMiddleware.mustRoot, userController.edit);
 
 router.get('/admin/clue', clueController.show);
 

@@ -15,9 +15,11 @@
       <div class="page-aside">
         <nav class="page-nav">
           <ul>
+            {% if userInfo.id == 1 %}
             <li>
               <a class="page-nav-item" href="/admin/user">人员管理</a>
             </li>
+            {% endif %}
             <li>
               <a class="page-nav-item" href="/admin/clue">线索管理</a>
             </li>

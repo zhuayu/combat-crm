@@ -33,7 +33,13 @@ const userController = {
   },
   show: async function(req,res,next){
     try{
-      const clues = await Clue.all();
+      const role = res.locals.userInfo.role;
+      const user_id = res.locals.userInfo.id;
+      let params = {};
+      if (role == 2) {
+        params.user_id = user_id
+      }
+      const clues = await Clue.joinUser(params);
       res.locals.clues = clues.map((data)=>{
         data.created_time_display = formatTime(data.created_time);
         return data

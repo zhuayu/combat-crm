@@ -24,7 +24,7 @@ const PAGE = {
         success: function(data) {
           if(data.code === 200){
             alert('登录成功！')
-            location.href = '/admin/user'
+            location.href = '/admin/clue'
           }else{
             alert(data.message)
           }
