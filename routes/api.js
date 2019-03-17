@@ -8,6 +8,8 @@ router.post('/user' , userController.insert);
 router.put('/user/:id' , userController.update);
 router.post('/login' , authController.login);
 router.post('/clue' , clueController.insert);
+router.put('/clue/:id' , clueController.update);
+router.post('/clue/:id/log', clueController.addLog);
 
 
 module.exports = router;

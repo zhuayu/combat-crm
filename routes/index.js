@@ -18,8 +18,6 @@ router.get('/admin/user/:id/edit', authMiddleware.mustLogin, userController.edit
 
 router.get('/admin/clue', clueController.show);
 
-router.get('/admin/clue/:id', function(req, res, next) {
-  res.render('admin/clue_log');
-});
+router.get('/admin/clue/:id', clueController.log);
 
 module.exports = router;
