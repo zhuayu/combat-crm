@@ -13,28 +13,16 @@
       <th>角色</th>
       <th>创建时间</th>
       <th>操作</th>
-    </trs>
-    <tr>
-      <td>周杰伦</td>
-      <td>13511111111</td>
-      <td>管理员</td>
-      <td>2019-4-1</td>
-      <td><a href="/admin/user/1/edit">编辑</a></td>
     </tr>
+    {% for val in users  %}
     <tr>
-      <td>李易峰</td>
-      <td>13522222222</td>
-      <td>管理员</td>
-      <td>2019-4-1</td>
-      <td><a href="/admin/user/2/edit">编辑</a></td>
+      <td>{{val.name}}</td>
+      <td>{{val.phone}}</td>
+      <td>{{ val.role_display}}</td>
+      <td>{{ val.created_time_display}}</td>
+      <td><a href="/admin/user/{{val.id}}/edit">编辑</a></td>
     </tr>
-    <tr>
-      <td>陈奕迅</td>
-      <td>13533333333</td>
-      <td>管理员</td>
-      <td>2019-4-1</td>
-      <td><a href="/admin/user/3/edit">编辑</a></td>
-    </tr>
+    {% endfor %}
   </table>
 </div>
 {% endblock %}

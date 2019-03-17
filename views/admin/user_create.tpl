@@ -7,23 +7,29 @@
 </div>
 <div class="form-section">
   <div class="form-item">
-    <input type="text" class="form-input" placeholder="姓名"/>
+    <input id="userName" type="text" class="form-input" placeholder="姓名"/>
   </div>
   <div class="form-item">
-    <input type="text" class="form-input" placeholder="电话"/>
+    <input id="userPhone" type="text" class="form-input" placeholder="电话"/>
   </div>
   <div class="form-item">
-    <input type="text" class="form-input" placeholder="密码"/>
+    <input id="userPassword" type="text" class="form-input" placeholder="密码"/>
   </div>
   <div class="form-item">
-    <select class="form-input">
+    <select class="form-input" id="userRole">
       <option value="0">请选择角色</option>
       <option value="1">管理员</option>
       <option value="2">销售</option>
     </select>
   </div>
   <div class="form-item">
-    <button class="form-button">新增</button>
+    <button id="userSubmit" class="form-button">新增</button>
   </div>
 </div>
+{% endblock %}
+
+
+{% block js %}
+<script src="/javascripts/jquery-3.3.1.min.js"></script>
+<script src="/javascripts/user_create.js"></script>
 {% endblock %}
