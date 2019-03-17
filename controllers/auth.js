@@ -24,6 +24,7 @@ const authController = {
         auth_Code = authCodeFunc(auth_Code,'ENCODE');
         // 加密防止再 cookie 中，并不让浏览器修改
         res.cookie('ac', auth_Code, { maxAge: 24* 60 * 60 * 1000, httpOnly: true });
+        res.cookie('user_name', user.name, { maxAge: 24* 60 * 60 * 1000, httpOnly: true });
         // 返回登录的信息
         res.json({ code: 200, message: '登录成功！'})
       }else{
@@ -32,6 +33,10 @@ const authController = {
     }catch(e){
       res.json({ code: 0, message: '系统问题请管理员处理' })
     }
+  },
+  logout: function(req,res,next) {
+    res.clearCookie('ac');
+    res.redirect('/admin/login')
   },
   // 渲染登录页面的模版
   renderLogin:async function(req,res,next){

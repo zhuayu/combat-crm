@@ -10,7 +10,10 @@
 </head>
 <body>
   <div class="wrapper">
-    <header class="page-header">{{userInfo.phone}}</header>
+    <header class="page-header">
+      {{userInfo.name}}
+      <a href="/api/logout">退出</a>
+    </header>
     <div class="page-body">
       <div class="page-aside">
         <nav class="page-nav">

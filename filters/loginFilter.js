@@ -7,6 +7,7 @@ module.exports = function (req, res, next) {
   
   // 判断是否存在ac cookie
   let auth_Code = req.cookies.ac;
+  let name = req.cookies.user_name;
   if(auth_Code){
     // 如果有，对其进行解密
     auth_Code = authCodeFunc(auth_Code,'DECODE');
@@ -21,7 +22,7 @@ module.exports = function (req, res, next) {
     // 当前为了教学进度，所以直接把用户名和密码和id直接解密返回
     res.locals.isLogin = true;
     res.locals.userInfo = {
-      phone,password,id,role
+      phone,password,id,role,name
     }
   }
 

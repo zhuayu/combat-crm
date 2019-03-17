@@ -16,8 +16,7 @@ router.get('/admin/user', authMiddleware.mustLogin, authMiddleware.mustRoot, use
 router.get('/admin/user/create', authMiddleware.mustLogin, authMiddleware.mustRoot, userController.renderUserCreate);
 router.get('/admin/user/:id/edit', authMiddleware.mustLogin, authMiddleware.mustRoot, userController.edit);
 
-router.get('/admin/clue', clueController.show);
-
-router.get('/admin/clue/:id', clueController.log);
+router.get('/admin/clue', authMiddleware.mustLogin, clueController.show);
+router.get('/admin/clue/:id', authMiddleware.mustLogin, clueController.log);
 
 module.exports = router;
