@@ -6,7 +6,7 @@ var logger = require('morgan');
 var nunjucks = require('nunjucks');
 var indexRouter = require('./routes/index');
 var apiRouter = require('./routes/api');
-
+var filters = require('./filters/index')
 var app = express();
 
 
@@ -26,6 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+filters(app);
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
 

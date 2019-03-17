@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{{title}}</title>
+    <title>{{seo.title}}</title>
     <link rel="stylesheet" href="/stylesheets/reset.css"/>
     <link rel="stylesheet" href="/stylesheets/admin.css"/>
     {% block css %}
@@ -10,7 +10,7 @@
 </head>
 <body>
   <div class="wrapper">
-    <header class="page-header">林熙</header>
+    <header class="page-header">{{userInfo.phone}}</header>
     <div class="page-body">
       <div class="page-aside">
         <nav class="page-nav">
