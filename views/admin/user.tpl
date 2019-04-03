@@ -1,10 +1,7 @@
 {% extends './../admin_layout.tpl' %}
 
 {% block content %}
-<div class="content-title">人员管理</div>
-<div class="content-control">
-  <a href="/admin/user/create">新增人员 >></a>
-</div>
+<div class="content-title"><a href="/admin/user/create">新增人员 >></a></div>
 <div class="content-table">
   <table class="table-container">
     <tr>

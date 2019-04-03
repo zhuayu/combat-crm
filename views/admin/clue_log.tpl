@@ -1,48 +1,41 @@
 {% extends './../admin_layout.tpl' %}
 
 {% block content %}
-<div class="content-title">跟踪线索</div>
-<div class="content-control">
-  <a href="/admin/clue">返回线索列表 >></a>
-</div>
-<div class="content-mainer">
+<div class="content-title"><a href="/admin/clue">返回线索列表 >></a></div>
+<div class="cluelog-mainer">
   {% if userInfo.role == 1 %}
-  <div class="form-section">
+  <div class="clue-section">
     <div class="form-item">
-      <span class="form-text">客户名称：{{clue.name}}</span>
+      <p class="form-text">客户名称：{{clue.name}}</p>
     </div>
     <div class="form-item">
-      <span class="form-text">联系电话：{{clue.phone}}</span>
+      <p class="form-text">联系电话：{{clue.phone}}</p>
     </div>
     <div class="form-item">
-      <span class="form-text">线索来源：{{clue.utm}}</span>
+      <p class="form-text">线索来源：{{clue.utm}}</p>
     </div>
     <div class="form-item">
-      <span class="form-text">创建时间：{{clue.created_time_display}}</span>
+      <p class="form-text">创建时间：{{clue.created_time_display}}</p>
     </div>
     <div class="form-item">
-      <span class="form-text">用户状态：</span>
-      <div class="form-item">
-        <select id="clueStatus" class="form-input">
-          <option value="0">请选择线索状态</option>
-          <option value="1" {% if clue.status == 1 %} selected {% endif %}>没有意向</option>
-          <option value="2" {% if clue.status == 2 %} selected {% endif %}>意向一般</option>
-          <option value="3" {% if clue.status == 3 %} selected {% endif %}>意向强烈</option>
-          <option value="4" {% if clue.status == 4 %} selected {% endif %}>完成销售</option>
-          <option value="5" {% if clue.status == 5 %} selected {% endif %}>取消销售</option>
-        </select>
-      </div>
+      <p class="form-text">用户状态：</p>
+      <select id="clueStatus" class="form-input">
+        <option value="0">请选择线索状态</option>
+        <option value="1" {% if clue.status == 1 %} selected {% endif %}>没有意向</option>
+        <option value="2" {% if clue.status == 2 %} selected {% endif %}>意向一般</option>
+        <option value="3" {% if clue.status == 3 %} selected {% endif %}>意向强烈</option>
+        <option value="4" {% if clue.status == 4 %} selected {% endif %}>完成销售</option>
+        <option value="5" {% if clue.status == 5 %} selected {% endif %}>取消销售</option>
+      </select>
     </div>
     <div class="form-item">
-      <span class="form-text">当前分配销售：</span>
-      <div class="form-item">
-        <select id="clueUserId" class="form-input">
-          <option value="0">请选择分配销售</option>
-          {% for val in users  %}
-          <option value="{{val.id}}" {% if clue.user_id == val.id %} selected {% endif %}>{{val.name}}</option>
-          {% endfor %}
-        </select>
-      </div>
+      <p class="form-text">当前分配销售：</p>
+      <select id="clueUserId" class="form-input">
+        <option value="0">请选择分配销售</option>
+        {% for val in users  %}
+        <option value="{{val.id}}" {% if clue.user_id == val.id %} selected {% endif %}>{{val.name}}</option>
+        {% endfor %}
+      </select>
     </div>
     <div class="form-item">
       <p class="form-text">备注：</p>

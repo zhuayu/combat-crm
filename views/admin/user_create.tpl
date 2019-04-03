@@ -1,10 +1,7 @@
 {% extends './../admin_layout.tpl' %}
 
 {% block content %}
-<div class="content-title">新增人员</div>
-<div class="content-control">
-  <a href="/admin/user">返回用户列表 >></a>
-</div>
+<div class="content-title"><a href="/admin/user">返回用户列表 >></a></div>
 <div class="form-section">
   <div class="form-item">
     <input id="userName" type="text" class="form-input" placeholder="姓名"/>

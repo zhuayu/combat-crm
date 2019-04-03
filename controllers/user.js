@@ -1,5 +1,6 @@
 const User = require('./../models/user.js');
 const { formatTime } = require('./../utils/date.js');
+
 const userController = {
   insert: async function(req,res,next){
     let name = req.body.name;
@@ -16,16 +17,10 @@ const userController = {
       const users = await User.insert({ 
         name, phone, password, role, created_time
       });
-      res.json({ 
-        code: 200, 
-        data: users
-      })
+      res.json({ code: 200, data: users})
     }catch(e){
       console.log(e)
-      res.json({ 
-        code: 0,
-        message: '内部错误'
-      })
+      res.json({ code: 0, message: '内部错误' })
     }
   },
   show: async function(req,res,next){
@@ -36,6 +31,7 @@ const userController = {
         data.created_time_display = formatTime(data.created_time);
         return data
       });
+      res.locals.nav = 'user';
       res.render('admin/user.tpl',res.locals)
     }catch(e){
       res.locals.error = e;
@@ -47,6 +43,7 @@ const userController = {
       const id = req.params.id;
       const users = await User.select({ id })
       res.locals.user = users[0]
+      res.locals.nav = 'user';
       res.render('admin/user_edit.tpl',res.locals)
     }catch(e){
       res.locals.error = e;
@@ -69,19 +66,14 @@ const userController = {
       const users = await User.update( id ,{ 
         name, phone, password, role
       });
-      res.json({ 
-        code: 200, 
-        data: users
-      })
+      res.json({ code: 200, data: users })
     }catch(e){
       console.log(e)
-      res.json({ 
-        code: 0,
-        message: '内部错误'
-      })
+      res.json({ code: 0, message: '内部错误' })
     }
   },
   renderUserCreate: function(req,res,next) {
+    res.locals.nav = 'user';
     res.render('admin/user_create');
   },
 }

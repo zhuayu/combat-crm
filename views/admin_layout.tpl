@@ -4,15 +4,20 @@
     <meta charset="utf-8">
     <title>{{seo.title}}</title>
     <link rel="stylesheet" href="/stylesheets/reset.css"/>
-    <link rel="stylesheet" href="/stylesheets/admin.css"/>
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
     {% block css %}
     {% endblock %}
 </head>
 <body>
   <div class="wrapper">
     <header class="page-header">
-      {{userInfo.name}}
-      <a href="/api/logout">退出</a>
+      <div class="header-logo">
+        <img src="/images/mercedes-benz-logo-desktop.png" alt="mercedes-benz-logo"/>
+      </div>
+      <div class="user-info">
+        <span>{{userInfo.name}}</span>
+        <a class="logout" href="/api/logout">退出</a>
+      </div>
     </header>
     <div class="page-body">
       <div class="page-aside">
@@ -20,11 +25,11 @@
           <ul>
             {% if userInfo.id == 1 %}
             <li>
-              <a class="page-nav-item" href="/admin/user">人员管理</a>
+              <a class="page-nav-item {% if nav == 'user' %}active{% endif %}" href="/admin/user">人员管理</a>
             </li>
             {% endif %}
             <li>
-              <a class="page-nav-item" href="/admin/clue">线索管理</a>
+              <a class="page-nav-item {% if nav == 'clue' %}active{% endif %}" href="/admin/clue">线索管理</a>
             </li>
           </ul>
         </nav>

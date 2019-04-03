@@ -1,7 +1,6 @@
 const Clue = require('./../models/clue.js');
 const ClueLog = require('./../models/log.js');
 const User = require('./../models/user.js');
-
 const { formatTime } = require('./../utils/date.js');
 
 const userController = {
@@ -10,25 +9,18 @@ const userController = {
     let phone = req.body.phone;
     let utm = req.body.utm;
     let created_time = new Date();
+
     if(!name || !phone){
       res.json({ code: 0, message: '缺少必要参数' });
       return
     }
 
     try{
-      const clues = await Clue.insert({ 
-        name, phone, utm, created_time
-      });
-      res.json({ 
-        code: 200, 
-        data: clues
-      })
+      const clues = await Clue.insert({  name, phone, utm, created_time });
+      res.json({ code: 200, data: clues })
     }catch(e){
       console.log(e)
-      res.json({ 
-        code: 0,
-        message: '内部错误'
-      })
+      res.json({ code: 0, message: '内部错误' })
     }
   },
   show: async function(req,res,next){
@@ -44,6 +36,7 @@ const userController = {
         data.created_time_display = formatTime(data.created_time);
         return data
       });
+      res.locals.nav = 'clue';
       res.render('admin/clue.tpl',res.locals)
     }catch(e){
       res.locals.error = e;
@@ -68,6 +61,7 @@ const userController = {
         data.created_time_display = formatTime(data.created_time);
         return data
       });
+      res.locals.nav = 'clue';
       res.render('admin/clue_log.tpl',res.locals)
     }catch(e){
       res.locals.error = e;
@@ -86,19 +80,11 @@ const userController = {
     }
 
     try{
-      const clue = await Clue.update( id ,{ 
-        status, remark, user_id
-      });
-      res.json({ 
-        code: 200, 
-        data: clue
-      })
+      const clue = await Clue.update( id ,{  status, remark, user_id });
+      res.json({ code: 200,  data: clue })
     }catch(e){
       console.log(e)
-      res.json({ 
-        code: 0,
-        message: '内部错误'
-      })
+      res.json({  code: 0, message: '内部错误'})
     }
   },
   addLog: async function(req,res,next){
@@ -111,19 +97,11 @@ const userController = {
     }
 
     try{
-      const clue = await ClueLog.insert({ 
-        content, created_time, clue_id
-      });
-      res.json({ 
-        code: 200, 
-        data: clue
-      })
+      const clue = await ClueLog.insert({  content, created_time, clue_id });
+      res.json({ code: 200, data: clue })
     }catch(e){
       console.log(e)
-      res.json({ 
-        code: 0,
-        message: '内部错误'
-      })
+      res.json({ code: 0, message: '内部错误'})
     }
   }
 }

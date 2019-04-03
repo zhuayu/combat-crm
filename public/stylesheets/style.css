@@ -1,8 +1,274 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/*布局与导航*/
+.wrapper{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-width: 1000px;
 }
 
-a {
-  color: #00B7FF;
+.page-header{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px;
+  font-size: 16px;
+  background: #222;
+  color: #fff;
+}
+
+.page-header .header-logo img{
+  height: 64px;
+}
+
+.page-header .user-info{
+  line-height: 70px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.page-header .user-info .logout{
+  margin-left: 20px;
+  color: #fff;
+}
+
+.page-body{
+  flex: 1;
+}
+
+.page-body{
+  display: flex;
+}
+
+.page-aside{
+  width: 298px;
+  border-top: 1px solid #333;
+  background: #222;
+}
+
+.page-content{
+  flex: 1;
+  padding: 0 40px;
+}
+
+.page-content .content-title{
+  font-size: 16px;
+  margin: 20px 0;
+}
+
+.page-content .content-title a{
+  color: #00ADEF;
+}
+
+.page-footer{
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+  background: #222;
+}
+
+.page-nav-item{
+  display: block;
+  height: 60px;
+  padding: 10px 20px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #999;
+  text-decoration: none;
+  border-bottom: 1px solid #333;
+}
+
+.page-nav-item.active{
+  background: #333;
+}
+
+.container{
+  width: 1000px;
+  margin: 0 auto;
+}
+
+/*表单*/
+.form-item{
+  min-width: 300px;
+  max-width: 600px;
+  margin: 20px 0;
+}
+
+.form-text{
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.form-input{
+  line-height: 40px;
+  padding: 10px;
+  font-size: 14px;
+  width: 100%;
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 0px;
+  border-bottom: 1px solid #ccc;
+  background: transparent;
+  outline: none;
+}
+
+.form-textarea{
+  display: block;
+  width: 100%;
+  line-height: 20px;
+  height: 80px;
+  padding: 10px;
+  border: 1px solid #e4e4e4;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-button{
+  display: block;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  font-size: 16px;
+  background: #00ADEF;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.form-button:hover{
+  opacity: .8;
+}
+
+/*表格样式*/
+.table-container{
+  border-collapse: collapse;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.table-container tr{
+  border-top: 1px solid #dfe2e5;
+}
+
+.table-container tr:nth-child(2n) {
+    background-color: #f6f8fa;
+}
+
+.table-container th{
+  font-style: 16px;
+  font-weight: 600;
+}
+
+.table-container td,
+.table-container th{
+  border: 1px solid #dfe2e5;
+  padding: .6em 1em;
+}
+
+
+/*申请页面*/
+.apply-section{
+  flex:1;
+  min-height: 668px;
+  background-image: url('/images/testdrivebg.jpg');
+  background-repeat: no-repeat;
+  background-position: right 120px;
+}
+
+.apply-section .apply-title{
+  position: relative;
+  font-size: 36px;
+  text-align: center;
+  font-weight: 400;
+  line-height: 50px;
+  margin: 20px 0;
+}
+
+.apply-section .apply-title span{
+  display: inline-block;
+  background-color: #fff;
+  padding: 0 20px;
+}
+
+.apply-section .apply-title:before{
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #e1e1e1;
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  top: 25px;
+}
+
+.apply-section .apply-content{
+  margin-top: 80px;
+  width: 300px;
+}
+
+.apply-section .apply-descripton{
+  font-size: 14px;
+  color: #666;
+  margin: 40px 0;
+}
+
+
+/*登录页面*/
+.login-section{
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/images/mb-headlight-street-land-big.jpg');
+  background-size: cover;
+}
+
+.login-section .login-title{
+  margin-bottom: 20px;
+  font-size: 36px;
+  color: #222;
+  font-weight: 400;
+}
+
+.login-section .login-content{
+  display: inline-block;
+  padding: 40px 80px;
+  background: rgba(255,255,255,.8);
+}
+
+.login-section .login-content .form-input::-webkit-input-placeholder{
+  color: #666;
+  font-size: 16px;
+}
+
+
+/*记录列表样式*/
+.cluelog-mainer{
+  display: flex;
+}
+
+.clue-section{
+  flex: 1;
+  padding: 20px;
+  background: #f1f1f1;
+  margin-right: 10px;
+}
+
+.log-section{
+  flex: 1;
+  padding: 20px;
+  background: #f1f1f1;
+}
+
+.log-item{
+  margin: 20px 0;
+}
+
+.log-item .log-date{
+  font-size: 16px;
+}
+.log-item .log-content{
+  font-size: 14px;
+  color: #666;
 }
