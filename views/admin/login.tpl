@@ -22,7 +22,7 @@
             <input id="userPhone" type="text" class="form-input" placeholder="请输入你的手机"/>
           </div>
           <div class="form-item">
-            <input id="userPassword" type="text" class="form-input" placeholder="请输入你的密码"/>
+            <input id="userPassword" type="password" class="form-input" placeholder="请输入你的密码"/>
           </div>
           <div class="form-item">
             <button id="userSubmit" class="form-button">马上登录</button>
