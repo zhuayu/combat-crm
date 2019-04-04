@@ -24,18 +24,13 @@ CRM 销售机会信息管理
 ### 1.5 - 配套资料
 * 设计稿
 
-![图片](https://uploader.shimo.im/f/n8hwecEgnEYKIFRI.png!thumbnail)
-![图片](https://uploader.shimo.im/f/dFkLEz6hjQkT5dtN.png!thumbnail)
-![图片](https://uploader.shimo.im/f/yolD2gSGJB4TMrdh.png!thumbnail)
-![图片](https://uploader.shimo.im/f/tJ59u4U5XfYSSFXz.png!thumbnail)
-![图片](https://uploader.shimo.im/f/T1GMgaAHL8wDP6FJ.png!thumbnail)
-![图片](https://uploader.shimo.im/f/pFHc71iE9bYKUcJf.png!thumbnail)
-![图片](https://uploader.shimo.im/f/SDVbjkiV8gMlqA8e.png!thumbnail)
+![图片](./preview/loading.jpeg)
+![图片](./preview/login.jpeg)
+![图片](./preview/clue.png)
+![图片](./preview/clue_log.png)
+![图片](./preview/user_edit.png)
 
-* 产品流程图
-
-![图片](https://uploader.shimo.im/f/8rwtAbOCyKgO2cyn.png!thumbnail)
-![图片](https://uploader.shimo.im/f/EwZZsWDq7pcLPmd8.png!thumbnail)
+* 产品流程图 (无)
 
 ## 2-项目剖析页
 ### 2.1 - 项目解读
