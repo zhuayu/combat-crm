@@ -39,8 +39,8 @@
   </table>
 </div>
 
+{% if pagination.pageArray.length > 1 %}
 <div class="pagination">
-  {{pagination.pageNumber}}
   {% for val in pagination.pageArray  %}
     <a class="pagination-item {% if val == pagination.current %}active{% endif %}"
       href="/admin/clue?page={{val}}"
@@ -48,6 +48,7 @@
       {{val}}
     </a>
   {% endfor %}
-
 </div>
+{% endif %}
+
 {% endblock %}
