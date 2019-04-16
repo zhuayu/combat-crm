@@ -174,6 +174,27 @@
 }
 
 
+/*分页*/
+.pagination{
+  text-align: right;
+}
+.pagination-item{
+  display: inline-block;
+  vertical-align: top;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: 1px solid #333;
+  color: #333;
+  text-decoration: none;
+  margin-left: 5px;
+}
+.pagination-item.active{
+  background-color: #333;
+  color: #fff;
+}
+
 /*申请页面*/
 .apply-section{
   flex:1;

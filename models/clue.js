@@ -9,9 +9,12 @@ class Clue extends Base {
     super(props);
   }
 
-  joinUser(params={}){
+  joinUser(params={},pagination={}){
+    let limit = pagination.limit || 10;
+    let page = pagination.page || 10;
+    let offset = limit * (page - 1);
     return knex('clue')
-      .join('user', 'clue.user_id', '=', 'user.id')
+      .leftJoin('user', 'clue.user_id', '=', 'user.id')
       .select(
         'clue.id',
         'clue.name',
@@ -20,7 +23,11 @@ class Clue extends Base {
         'clue.status',
         'clue.created_time',
         {'sales_name': 'user.name'},
-      ).where(params)
+      )
+      .orderBy('id', 'desc')
+      .where(params)
+      .limit(limit)
+      .offset(offset)
   }
 }
 

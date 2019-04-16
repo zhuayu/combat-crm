@@ -27,15 +27,28 @@ const userController = {
     try{
       const role = res.locals.userInfo.role;
       const user_id = res.locals.userInfo.id;
+      const page = req.query.page || 1;
+      const limit = req.query.limit || 10;
+      let pagination = { page, limit }
       let params = {};
       if (role == 2) {
         params.user_id = user_id
       }
-      const clues = await Clue.joinUser(params);
+      const count = await Clue.count(params);
+      const sum = count[0].sum;
+      const clues = await Clue.joinUser(params, pagination);
       res.locals.clues = clues.map((data)=>{
         data.created_time_display = formatTime(data.created_time);
         return data
       });
+      let pageNumber = Math.ceil(sum/limit);
+      let pageArray = new Array(pageNumber).fill('').map((item, index) => index + 1);
+      res.locals.pagination = {
+        total: sum,
+        pageSize: limit,
+        current: page,
+        pageArray: pageArray
+      }
       res.locals.nav = 'clue';
       res.render('admin/clue.tpl',res.locals)
     }catch(e){

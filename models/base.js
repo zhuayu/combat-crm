@@ -24,6 +24,10 @@ class Base {
   delete(id){
     return knex(this.table).where('id', '=', id).del()
   }
+
+  count(params={}) {
+    return knex(this.table).where(params).count('id as sum');
+  }
 }
 
 module.exports = Base;
