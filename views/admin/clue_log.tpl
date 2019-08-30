@@ -42,7 +42,6 @@
       <textarea id="clueRemark" class="form-textarea" placeholder="备注信息">{{clue.remark}}</textarea>
     </div>
     <div class="form-item">
-      <input id="clueId"  type="text" hidden value="{{clue.id}}" />
       <button id="clueSubmit" class="form-button">保存</button>
     </div>
   </div>
@@ -71,6 +70,7 @@
     </div>
   </div>
 </div>
+<input id="clueId"  type="text" hidden value="{{clue.id}}" />
 {% endblock %}
 
 {% block js %}
